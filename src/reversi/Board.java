@@ -3,6 +3,8 @@ package reversi;
 import java.util.Scanner;
 
 public class Board {
+	int choice1;
+	int choice2;
 	char player = 'w';
 	char[][] grid = { { '.', '.', '.', '.', '.', '.', '.', '.' }, { '.', '.', '.', '.', '.', '.', '.', '.' },
 			{ '.', '.', '.', '.', '.', '.', '.', '.' }, { '.', '.', '.', 'w', 'b', '.', '.', '.' },
@@ -43,8 +45,6 @@ public class Board {
 	}
 
 	public void chooseMove() {
-		int choice1;
-		int choice2;
 		Scanner userNumbers = new Scanner(System.in);
 		System.out.println("number1");
 		choice1 = userNumbers.nextInt();
@@ -52,8 +52,7 @@ public class Board {
 		System.out.println("number2");
 		choice2 = userNumbers2.nextInt();
 		grid[choice1 - 1][choice2 - 1] = player;
-		currentPlayer();
-		boardLayout();
+		validMove();
 		userNumbers.close();
 		userNumbers2.close();
 	}
@@ -65,8 +64,15 @@ public class Board {
 			player = 'w';
 		}
 	}
-	
+
 	public void validMove() {
-		
+		if (grid[choice1 - 2][choice2 - 2] == 'w' || grid[choice1 - 2][choice2 - 2] == 'b'
+				|| grid[choice1 + 2][choice2 + 2] == 'w' || grid[choice1 + 2][choice2 + 2] == 'b') {
+			currentPlayer();
+			boardLayout();
+		} else {
+			System.out.println("nope");
+			chooseMove();
+		}
 	}
 }
