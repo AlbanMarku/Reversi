@@ -90,7 +90,7 @@ public class Board {
 	}
 
 	public void validMove() {
-		if (grid[choice1 - 2][choice1 - 2] == 'w') { // This is checking the top left of the players move to see if it's 'w'. I thought I could put a null value in one of the [] so it only checks the left or right but then Java doesn't like that. So for now I can only do diagonals. Maybe I could do [coice1 - choice1] to make it null?
+		if (grid[choice1 - 2][choice2 - 2] == 'w') { // This is checking the top left of the players move to see if it's 'w'. I thought I could put a null value in one of the [] so it only checks the left or right but then Java doesn't like that. So for now I can only do diagonals. Maybe I could do [coice1 - choice1] to make it null?
 			grid[choice1 - 1][choice2 - 1] = player; // Places the piece if move is valid. It's -1 just to not confuse the user. Otherwise if they want to put something at 1,1 they would need to write 0,0.
 			currentPlayer(); //Swaps turn.
 			boardLayout(); // Updates board.
