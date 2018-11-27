@@ -99,112 +99,112 @@ public class Board {
 
 	public void validMove() {
 		
-		if (grid[choice1 - 2][choice2 - 1] == 'w' && player == 'b') { // up
+		if (grid[choice1 - 2][choice2 - 1] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.' ) { // up
 			grid[choice1 - 1][choice2 - 1] = player;
 
 			currentPlayer(); // Swaps turn.
 			boardLayout(); // Updates board.
 		}
 
-		if (grid[choice1][choice2 - 1] == 'w' && player == 'b') { // down
+		if (grid[choice1][choice2 - 1] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.' ) { // down
 			grid[choice1 - 1][choice2 - 1] = player;
 
 			currentPlayer();
 			boardLayout();
 		}
 
-		if (grid[choice1 - 1][choice2 - 2] == 'w' && player == 'b') { // left
+		if (grid[choice1 - 1][choice2 - 2] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.' ) { // left
 			grid[choice1 - 1][choice2 - 1] = player;
 
 			currentPlayer();
 			boardLayout();
 		}
 
-		if (grid[choice1 - 1][choice2] == 'w' && player == 'b') { // right
+		if (grid[choice1 - 1][choice2] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.' ) { // right
 			grid[choice1 - 1][choice2 - 1] = player;
 
 			currentPlayer();
 			boardLayout();
 		}
 
-		if (grid[choice1 - 2][choice2 - 2] == 'w' && player == 'b') { // up-left
+		if (grid[choice1 - 2][choice2 - 2] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.' ) { // up-left
 			grid[choice1 - 1][choice2 - 1] = player;
 
 			currentPlayer();
 			boardLayout();
 		}
 
-		if (grid[choice1 - 2][choice2] == 'w' && player == 'b') { // up-right
+		if (grid[choice1 - 2][choice2] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.' ) { // up-right
 			grid[choice1 - 1][choice2 - 1] = player;
 
 			currentPlayer();
 			boardLayout();
 		}
 
-		if (grid[choice1][choice2 - 2] == 'w' && player == 'b') { // down-left
+		if (grid[choice1][choice2 - 2] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.' ) { // down-left
 			grid[choice1 - 1][choice2 - 1] = player;
 
 			currentPlayer();
 			boardLayout();
 		}
 
-		if (grid[choice1][choice2] == 'w' && player == 'b') { // down-right
+		if (grid[choice1][choice2] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.' ) { // down-right
 			grid[choice1 - 1][choice2 - 1] = player;
 
 			currentPlayer();
 			boardLayout();
 		}
 		
-		if (grid[choice1 - 2][choice2 - 1] == 'b' && player == 'w') { // up
+		if (grid[choice1 - 2][choice2 - 1] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.' ) { // up
 			grid[choice1 - 1][choice2 - 1] = player;
 
 			currentPlayer(); // Swaps turn.
 			boardLayout(); // Updates board.
 		}
 
-		if (grid[choice1][choice2 - 1] == 'b' && player == 'w') { // down
+		if (grid[choice1][choice2 - 1] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.' ) { // down
 			grid[choice1 - 1][choice2 - 1] = player;
 
 			currentPlayer();
 			boardLayout();
 		}
 
-		if (grid[choice1 - 1][choice2 - 2] == 'b' && player == 'w') { // left
+		if (grid[choice1 - 1][choice2 - 2] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.' ) { // left
 			grid[choice1 - 1][choice2 - 1] = player;
 
 			currentPlayer();
 			boardLayout();
 		}
 
-		if (grid[choice1 - 1][choice2] == 'b' && player == 'w') { // right
+		if (grid[choice1 - 1][choice2] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.' ) { // right
 			grid[choice1 - 1][choice2 - 1] = player;
 
 			currentPlayer();
 			boardLayout();
 		}
 
-		if (grid[choice1 - 2][choice2 - 2] == 'b' && player == 'w') { // up-left
+		if (grid[choice1 - 2][choice2 - 2] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.' ) { // up-left
 			grid[choice1 - 1][choice2 - 1] = player;
 
 			currentPlayer();
 			boardLayout();
 		}
 
-		if (grid[choice1 - 2][choice2] == 'b' && player == 'w') { // up-right
+		if (grid[choice1 - 2][choice2] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.' ) { // up-right
 			grid[choice1 - 1][choice2 - 1] = player;
 
 			currentPlayer();
 			boardLayout();
 		}
 
-		if (grid[choice1][choice2 - 2] == 'b' && player == 'w') { // down-left
+		if (grid[choice1][choice2 - 2] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.' ) { // down-left
 			grid[choice1 - 1][choice2 - 1] = player;
 
 			currentPlayer();
 			boardLayout();
 		}
 
-		if (grid[choice1][choice2] == 'b' && player == 'w') { // down-right
+		if (grid[choice1][choice2] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.' ) { // down-right
 			grid[choice1 - 1][choice2 - 1] = player;
 
 			currentPlayer();
