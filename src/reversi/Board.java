@@ -7,6 +7,7 @@ public class Board {
 	int choice1;// row value from user
 	int choice2;// col value from user
 	char player = 'w';
+	boolean confirmMove = false;
 	/**
 	 * Creating board
 	 */
@@ -98,113 +99,58 @@ public class Board {
 	}
 
 	public void validMove() {
-		
-		if (grid[choice1 - 2][choice2 - 1] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.' ) { // up
+
+		if (grid[choice1 - 2][choice2 - 1] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.') { // up
+			endPieceCheck();
 			grid[choice1 - 1][choice2 - 1] = player;
 
 			currentPlayer(); // Swaps turn.
 			boardLayout(); // Updates board.
 		}
 
-		if (grid[choice1][choice2 - 1] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.' ) { // down
+		if (grid[choice1][choice2 - 1] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.') { // down
 			grid[choice1 - 1][choice2 - 1] = player;
 
 			currentPlayer();
 			boardLayout();
 		}
 
-		if (grid[choice1 - 1][choice2 - 2] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.' ) { // left
+		if (grid[choice1 - 1][choice2 - 2] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.') { // left
 			grid[choice1 - 1][choice2 - 1] = player;
 
 			currentPlayer();
 			boardLayout();
 		}
 
-		if (grid[choice1 - 1][choice2] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.' ) { // right
+		if (grid[choice1 - 1][choice2] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.') { // right
 			grid[choice1 - 1][choice2 - 1] = player;
 
 			currentPlayer();
 			boardLayout();
 		}
 
-		if (grid[choice1 - 2][choice2 - 2] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.' ) { // up-left
-			grid[choice1 - 1][choice2 - 1] = player;
-
-			currentPlayer();
-			boardLayout();
-		}
-
-		if (grid[choice1 - 2][choice2] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.' ) { // up-right
-			grid[choice1 - 1][choice2 - 1] = player;
-
-			currentPlayer();
-			boardLayout();
-		}
-
-		if (grid[choice1][choice2 - 2] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.' ) { // down-left
-			grid[choice1 - 1][choice2 - 1] = player;
-
-			currentPlayer();
-			boardLayout();
-		}
-
-		if (grid[choice1][choice2] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.' ) { // down-right
-			grid[choice1 - 1][choice2 - 1] = player;
-
-			currentPlayer();
-			boardLayout();
-		}
-		
-		if (grid[choice1 - 2][choice2 - 1] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.' ) { // up
+		if (grid[choice1 - 2][choice2 - 1] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // up
 			grid[choice1 - 1][choice2 - 1] = player;
 
 			currentPlayer(); // Swaps turn.
 			boardLayout(); // Updates board.
 		}
 
-		if (grid[choice1][choice2 - 1] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.' ) { // down
+		if (grid[choice1][choice2 - 1] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // down
 			grid[choice1 - 1][choice2 - 1] = player;
 
 			currentPlayer();
 			boardLayout();
 		}
 
-		if (grid[choice1 - 1][choice2 - 2] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.' ) { // left
+		if (grid[choice1 - 1][choice2 - 2] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // left
 			grid[choice1 - 1][choice2 - 1] = player;
 
 			currentPlayer();
 			boardLayout();
 		}
 
-		if (grid[choice1 - 1][choice2] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.' ) { // right
-			grid[choice1 - 1][choice2 - 1] = player;
-
-			currentPlayer();
-			boardLayout();
-		}
-
-		if (grid[choice1 - 2][choice2 - 2] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.' ) { // up-left
-			grid[choice1 - 1][choice2 - 1] = player;
-
-			currentPlayer();
-			boardLayout();
-		}
-
-		if (grid[choice1 - 2][choice2] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.' ) { // up-right
-			grid[choice1 - 1][choice2 - 1] = player;
-
-			currentPlayer();
-			boardLayout();
-		}
-
-		if (grid[choice1][choice2 - 2] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.' ) { // down-left
-			grid[choice1 - 1][choice2 - 1] = player;
-
-			currentPlayer();
-			boardLayout();
-		}
-
-		if (grid[choice1][choice2] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.' ) { // down-right
+		if (grid[choice1 - 1][choice2] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // right
 			grid[choice1 - 1][choice2 - 1] = player;
 
 			currentPlayer();
@@ -214,6 +160,14 @@ public class Board {
 		else {
 			System.out.println("nope");// If invalid it will say nope and go back for the user to try again.
 			chooseMove();
+		}
+	}
+
+	public void endPieceCheck() {
+		if (player == 'w') {
+			for(int row = 0; row < 8; row++) {
+				if ()
+			}
 		}
 	}
 
