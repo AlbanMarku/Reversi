@@ -145,7 +145,7 @@ public class Board {
 		}
 
 		else if (grid[choice1 - 2][choice2 - 1] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // up
-			endPieceCheck();
+			endPieceCheck(); //Checks if move is valid.
 			if (confirmMove == true) {
 				grid[choice1 - 1][choice2 - 1] = player;
 				currentPlayer(); // Swaps turn.
@@ -195,6 +195,12 @@ public class Board {
 	}
 
 	public void endPieceCheck() {
+		/**
+		 * Checks to see if there is a piece that is the same colour of the piece being
+		 * placed. This method doesn't work. Place a 'w' piece at by typing 6,4. Then
+		 * place a 'b' piece by typing 6,3. The piece is placed even though there is no
+		 * other 'b' piece on that row. That shouldn't happen.
+		 */
 
 		if (player == 'w' && grid[choice1 - 2][choice2 - 1] == 'b') { // up
 			for (int i = choice1 - 1; i > 0; i--) {
