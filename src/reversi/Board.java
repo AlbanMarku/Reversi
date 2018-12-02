@@ -276,14 +276,15 @@ public class Board {
 
 		if (player == 'b' && grid[choice1 - 1][choice2] == 'w') { // right
 			for (int i = choice2 - 1; i < 8; i++) {
-				if (grid[choice1 - 1][i] == 'b') {
-					confirmMove = true;
+				if (grid[choice1 - 1][i] == ('b')) {
+				confirmMove = true;
 				} else {
 					System.out.println("Not valid right b");
 				}
 			}
 		}
-
+		
+		
 //		else {
 //			if (player == 'b') {
 //				for (int i = choice1 - 1; i > 0; i--) {
