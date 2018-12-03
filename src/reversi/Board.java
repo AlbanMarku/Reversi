@@ -99,14 +99,31 @@ public class Board {
 	}
 
 	public void validMove() {
-		System.out.println("1");
+
+		confirmMove = false;
+
+		if (choice1 == 1) {
+			validationForValue1();
+		}
+
+		if (choice1 == 8) {
+			validationForValue8();
+		}
+
+		if (choice2 == 1) {
+			validationForValue11();
+		}
+
+		if (choice2 == 8) {
+			validationForValue88();
+		}
+
 		if (grid[choice1 - 2][choice2 - 1] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.') { // up
-			System.out.println("a");
 			endPieceCheck();
 			if (confirmMove == true) {
 				grid[choice1 - 1][choice2 - 1] = player;
+				flip();
 				currentPlayer(); // Swaps turn.
-				System.out.println("test up 2");
 				boardLayout(); // Updates board.
 				confirmMove = false;
 			} else {
@@ -117,14 +134,13 @@ public class Board {
 				chooseMove();
 			}
 		}
-		System.out.println("2");
-		 if (grid[choice1][choice2 - 1] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.') { // down
-			 System.out.println("b");
+
+		if (grid[choice1][choice2 - 1] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.') { // down
 			endPieceCheck();
 			if (confirmMove == true) {
 				grid[choice1 - 1][choice2 - 1] = player;
+				flip();
 				currentPlayer();
-				System.out.println("test down 2");
 				boardLayout();
 				confirmMove = false;
 			} else {
@@ -135,14 +151,13 @@ public class Board {
 				chooseMove();
 			}
 		}
-		 System.out.println("3");
-		 if (grid[choice1 - 1][choice2 - 2] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.') { // left
-			 System.out.println("c");
+
+		if (grid[choice1 - 1][choice2 - 2] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.') { // left
 			endPieceCheck();
 			if (confirmMove == true) {
 				grid[choice1 - 1][choice2 - 1] = player;
+				flip();
 				currentPlayer();
-				System.out.println("test left 2");
 				boardLayout();
 				confirmMove = false;
 			} else {
@@ -153,14 +168,13 @@ public class Board {
 				chooseMove();
 			}
 		}
-		 System.out.println("4");
-		 if (grid[choice1 - 1][choice2] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.') { // right
-			 System.out.println("d");
+
+		if (grid[choice1 - 1][choice2] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.') { // right
 			endPieceCheck();
 			if (confirmMove == true) {
 				grid[choice1 - 1][choice2 - 1] = player;
+				flip();
 				currentPlayer();
-				System.out.println("test right 2");
 				boardLayout();
 				confirmMove = false;
 			} else {
@@ -171,14 +185,13 @@ public class Board {
 				chooseMove();
 			}
 		}
-		 System.out.println("5");
-		 if (grid[choice1 - 2][choice2 - 1] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // up
-			 System.out.println("e");
+
+		if (grid[choice1 - 2][choice2 - 1] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // up
 			endPieceCheck(); // Checks if move is valid.
-			if (confirmMove == true ) {
+			if (confirmMove == true) {
 				grid[choice1 - 1][choice2 - 1] = player;
+				flip();
 				currentPlayer(); // Swaps turn.
-				System.out.println("test up1");
 				boardLayout(); // Updates board.
 				confirmMove = false;
 			} else {
@@ -189,14 +202,13 @@ public class Board {
 				chooseMove();
 			}
 		}
-		System.out.println("6");
-		 if (grid[choice1][choice2 - 1] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // down
-			 System.out.println("f");
+
+		if (grid[choice1][choice2 - 1] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // down
 			endPieceCheck();
 			if (confirmMove == true) {
 				grid[choice1 - 1][choice2 - 1] = player;
+				flip();
 				currentPlayer();
-				System.out.println("test down 1");
 				boardLayout();
 				confirmMove = false;
 			} else {
@@ -207,14 +219,13 @@ public class Board {
 				chooseMove();
 			}
 		}
-		 System.out.println("7");
-		 if (grid[choice1 - 1][choice2 - 2] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // left
-			 System.out.println("g");
+
+		if (grid[choice1 - 1][choice2 - 2] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // left
 			endPieceCheck();
 			if (confirmMove == true) {
 				grid[choice1 - 1][choice2 - 1] = player;
+				flip();
 				currentPlayer();
-				System.out.println("test left 1");
 				boardLayout();
 				confirmMove = false;
 			} else {
@@ -225,14 +236,12 @@ public class Board {
 				chooseMove();
 			}
 		}
-		 System.out.println("8");
-		 if (grid[choice1 - 1][choice2] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // right
-			 System.out.println("h");
+		if (grid[choice1 - 1][choice2] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // right
 			endPieceCheck();
 			if (confirmMove == true) {
 				grid[choice1 - 1][choice2 - 1] = player;
+				flip();
 				currentPlayer();
-				System.out.println("test right 1");
 				boardLayout();
 				confirmMove = false;
 			} else {
@@ -249,7 +258,7 @@ public class Board {
 			chooseMove();
 		}
 	}
-	
+
 	public void endPieceCheck() {
 		/**
 		 * Checks to see if there is a piece that is the same colour of the piece being
@@ -362,7 +371,11 @@ public class Board {
 			}
 		}
 
-		if (player == 'b') {
+		if (player == 'b' && confirmMove == false) {
+			if (grid[choice1 - 2][choice2 - 2] == 'b') {
+				System.out.println("nope");
+				chooseMove();
+			}
 			while (choice1 > 0 && choice2 > 0) {
 				if (grid[choice1 - 2][choice2 - 2] == 'b') { // up-left
 					confirmMove = true;
@@ -377,7 +390,11 @@ public class Board {
 			}
 		}
 
-		if (player == 'b') {
+		if (player == 'b' && confirmMove == false) {
+			if (grid[choice1 - 2][choice2] == 'b') {
+				System.out.println("nope");
+				chooseMove();
+			}
 			while (choice1 > 0 && choice2 < 8) {
 				if (grid[choice1 - 2][choice2] == 'b') { // up-right
 					confirmMove = true;
@@ -392,7 +409,11 @@ public class Board {
 			}
 		}
 
-		if (player == 'b') {
+		if (player == 'b' && confirmMove == false) {
+			if (grid[choice1][choice2 - 2] == 'b') {
+				System.out.println("nope");
+				chooseMove();
+			}
 			while (choice1 < 8 && choice2 > 0) {
 				if (grid[choice1][choice2 - 2] == 'b') { // down-left
 					confirmMove = true;
@@ -407,7 +428,11 @@ public class Board {
 			}
 		}
 
-		if (player == 'b') {
+		if (player == 'b' && confirmMove == false) {
+			if (grid[choice1][choice2] == 'b') {
+				System.out.println("nope");
+				chooseMove();
+			}
 			while (choice1 < 8 && choice2 < 8) {
 				if (grid[choice1][choice2] == 'b') { // down - right
 					confirmMove = true;
@@ -422,7 +447,11 @@ public class Board {
 			}
 		}
 
-		if (player == 'w') {
+		if (player == 'w' && confirmMove == false) {
+			if (grid[choice1 - 2][choice2 - 2] == 'w') {
+				System.out.println("nope");
+				chooseMove();
+			}
 			while (choice1 > 0 && choice2 > 0) {
 				if (grid[choice1 - 2][choice2 - 2] == 'w') { // up-left
 					confirmMove = true;
@@ -437,7 +466,11 @@ public class Board {
 			}
 		}
 
-		if (player == 'w') {
+		if (player == 'w' && confirmMove == false) {
+			if (grid[choice1 - 2][choice2] == 'w') {
+				System.out.println("nope");
+				chooseMove();
+			}
 			while (choice1 > 0 && choice2 < 8) {
 				if (grid[choice1 - 2][choice2] == 'w') { // up-right
 					confirmMove = true;
@@ -452,7 +485,11 @@ public class Board {
 			}
 		}
 
-		if (player == 'w') {
+		if (player == 'w' && confirmMove == false) {
+			if (grid[choice1][choice2 - 2] == 'w') {
+				System.out.println("nope");
+				chooseMove();
+			}
 			while (choice1 < 8 && choice2 > 0) {
 				if (grid[choice1][choice2 - 2] == 'w') { // down-left
 					confirmMove = true;
@@ -467,7 +504,11 @@ public class Board {
 			}
 		}
 
-		if (player == 'w') {
+		if (player == 'w' && confirmMove == false) {
+			if (grid[choice1][choice2] == 'w') {
+				System.out.println("nope");
+				chooseMove();
+			}
 			while (choice1 < 8 && choice2 < 8) {
 				if (grid[choice1][choice2] == 'w') { // down - right
 					confirmMove = true;
@@ -499,6 +540,1306 @@ public class Board {
 
 		} catch (Exception e) {
 			System.out.println("error");
+		}
+	}
+
+	public void validationForValue1() {
+
+		confirmMove = false;
+
+		if (grid[choice1][choice2 - 1] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // down
+			endPieceCheck1();
+			if (confirmMove == true) {
+				grid[choice1 - 1][choice2 - 1] = player;
+				flip();
+				currentPlayer();
+				System.out.println("test down 2");
+				boardLayout();
+				confirmMove = false;
+			} else {
+				System.out.println("-----------");
+				System.out.println("Try again");
+				System.out.println("-----------");
+				boardLayout();
+				chooseMove();
+			}
+		}
+		if (grid[choice1 - 1][choice2 - 2] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // left
+			endPieceCheck1();
+			if (confirmMove == true) {
+				grid[choice1 - 1][choice2 - 1] = player;
+				flip();
+				currentPlayer();
+				System.out.println("test left 1");
+				boardLayout();
+				confirmMove = false;
+			} else {
+				System.out.println("-----------");
+				System.out.println("Try again");
+				System.out.println("-----------");
+				boardLayout();
+				chooseMove();
+			}
+		}
+
+		if (grid[choice1 - 1][choice2] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // right
+			endPieceCheck1();
+			if (confirmMove == true) {
+				grid[choice1 - 1][choice2 - 1] = player;
+				flip();
+				currentPlayer();
+				System.out.println("test right 1");
+				boardLayout();
+				confirmMove = false;
+			} else {
+				System.out.println("----------");
+				System.out.println("Try again");
+				System.out.println("----------");
+				boardLayout();
+				chooseMove();
+			}
+		}
+		if (grid[choice1][choice2 - 1] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.') { // down
+			endPieceCheck1();
+			if (confirmMove == true) {
+				grid[choice1 - 1][choice2 - 1] = player;
+				flip();
+				currentPlayer();
+				System.out.println("test down 2");
+				boardLayout();
+				confirmMove = false;
+			} else {
+				System.out.println("-----------");
+				System.out.println("Try again");
+				System.out.println("-----------");
+				boardLayout();
+				chooseMove();
+			}
+		}
+		if (grid[choice1 - 1][choice2 - 2] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.') { // left
+			endPieceCheck1();
+			if (confirmMove == true) {
+				grid[choice1 - 1][choice2 - 1] = player;
+				flip();
+				currentPlayer();
+				System.out.println("test left 2");
+				boardLayout();
+				confirmMove = false;
+			} else {
+				System.out.println("-----------");
+				System.out.println("Try again");
+				System.out.println("-----------");
+				boardLayout();
+				chooseMove();
+			}
+		}
+
+		if (grid[choice1 - 1][choice2] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.') { // right
+			endPieceCheck1();
+			if (confirmMove == true) {
+				grid[choice1 - 1][choice2 - 1] = player;
+				flip();
+				currentPlayer();
+				System.out.println("test right 2");
+				boardLayout();
+				confirmMove = false;
+			} else {
+				System.out.println("-----------");
+				System.out.println("Try again");
+				System.out.println("-----------");
+				boardLayout();
+				chooseMove();
+			}
+		} else {
+			System.out.println("nope");
+			chooseMove();
+		}
+	}
+
+	public void endPieceCheck1() {
+
+		confirmMove = false;
+
+		if (player == 'w' && grid[choice1][choice2 - 1] == 'b') { // down
+			if (grid[choice1 + 1][choice2 - 1] == 'b') {
+				System.out.println("nope");
+				chooseMove();
+			}
+			for (int i = choice1 - 1; i < 8; i++) {
+				if (grid[i][choice2 - 1] == 'w') {
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[i + 1][choice2 - 1] == '.') {
+						break;
+					}
+				}
+			}
+		}
+
+		if (player == 'w' && confirmMove == false) {
+			if (grid[choice1][choice2 - 2] == 'w') {
+				System.out.println("nope");
+				chooseMove();
+			}
+			while (choice1 < 8 && choice2 > 0) {
+				if (grid[choice1][choice2 - 2] == 'w') { // down-left
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[choice1][choice2 - 2] == '.') {
+						break;
+					}
+					choice1++;
+					choice2--;
+				}
+			}
+		}
+
+		if (player == 'w' && confirmMove == false) {
+			if (grid[choice1][choice2] == 'w') {
+				System.out.println("nope");
+				chooseMove();
+			}
+			while (choice1 < 8 && choice2 < 8) {
+				if (grid[choice1][choice2] == 'w') { // down - right
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[choice1][choice2] == '.') {
+						break;
+					}
+					choice1++;
+					choice2++;
+				}
+			}
+		}
+
+		if (player == 'b' && confirmMove == false) {
+			if (grid[choice1][choice2 - 2] == 'b') {
+				System.out.println("nope");
+				chooseMove();
+			}
+			while (choice1 < 8 && choice2 > 0) {
+				if (grid[choice1][choice2 - 2] == 'b') { // down-left
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[choice1][choice2 - 2] == '.') {
+						break;
+					}
+					choice1++;
+					choice2--;
+				}
+			}
+		}
+
+		if (player == 'b' && confirmMove == false) {
+			if (grid[choice1][choice2] == 'b') {
+				System.out.println("nope");
+				chooseMove();
+			}
+			while (choice1 < 8 && choice2 < 8) {
+				if (grid[choice1][choice2] == 'b') { // down - right
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[choice1][choice2] == '.') {
+						break;
+					}
+					choice1++;
+					choice2++;
+				}
+			}
+		}
+		if (player == 'b' && grid[choice1 - 1][choice2 - 2] == 'w') { // left
+			for (int i = choice2 - 1; i > 0; i--) {
+				if (grid[choice1 - 1][i] == 'b') {
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[choice1 - 1][i - 1] == '.') {
+						break;
+					}
+				}
+			}
+		}
+		if (player == 'b' && grid[choice1][choice2 - 1] == 'w') { // down
+			for (int i = choice1 - 1; i < 8; i++) {
+				if (grid[i][choice2 - 1] == 'b') {
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[i + 1][choice2 - 1] == '.') {
+						break;
+					}
+				}
+			}
+		}
+		if (player == 'w' && grid[choice1 - 1][choice2 - 2] == 'b') { // left
+			for (int i = choice2 - 1; i > 0; i--) {
+				if (grid[choice1 - 1][i] == 'w') {
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[choice1 - 1][i - 1] == '.') {
+						break;
+					}
+				}
+			}
+		}
+		if (player == 'b' && grid[choice1 - 1][choice2] == 'w') { // right
+			for (int i = choice2 - 1; i < 8; i++) {
+				if (grid[choice1 - 1][i] == 'b') {
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[choice1 - 1][i + 1] == '.') {
+						break;
+					}
+				}
+			}
+		}
+		if (player == 'w' && grid[choice1 - 1][choice2] == 'b') { // right
+			for (int i = choice2 - 1; i < 8; i++) {
+				if (grid[choice1 - 1][i] == 'w') {
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[choice1 - 1][i + 1] == '.') {
+						break;
+					}
+				}
+			}
+		}
+	}
+
+	public void validationForValue8() {
+
+		confirmMove = false;
+
+		if (grid[choice1 - 2][choice2 - 1] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.') { // up
+			endPieceCheck2();
+			if (confirmMove == true) {
+				grid[choice1 - 1][choice2 - 1] = player;
+				flip();
+				currentPlayer();
+				System.out.println("test up 2");
+				boardLayout();
+				confirmMove = false;
+			} else {
+				System.out.println("-----------");
+				System.out.println("Try again");
+				System.out.println("-----------");
+				boardLayout();
+				chooseMove();
+			}
+		}
+		if (grid[choice1 - 2][choice2 - 1] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // up
+			endPieceCheck2();
+			if (confirmMove == true) {
+				grid[choice1 - 1][choice2 - 1] = player;
+				currentPlayer();
+				System.out.println("test up 2");
+				boardLayout();
+				confirmMove = false;
+			} else {
+				System.out.println("-----------");
+				System.out.println("Try again");
+				System.out.println("-----------");
+				boardLayout();
+				chooseMove();
+			}
+		}
+
+		if (grid[choice1 - 1][choice2] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // right
+			endPieceCheck2();
+			if (confirmMove == true) {
+				grid[choice1 - 1][choice2 - 1] = player;
+				flip();
+				currentPlayer();
+				System.out.println("test right 1");
+				boardLayout();
+				confirmMove = false;
+			} else {
+				System.out.println("----------");
+				System.out.println("Try again");
+				System.out.println("----------");
+				boardLayout();
+				chooseMove();
+			}
+		}
+
+		if (grid[choice1 - 1][choice2] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.') { // right
+			endPieceCheck2();
+			if (confirmMove == true) {
+				grid[choice1 - 1][choice2 - 1] = player;
+				currentPlayer();
+				System.out.println("test right 1");
+				boardLayout();
+				confirmMove = false;
+			} else {
+				System.out.println("----------");
+				System.out.println("Try again");
+				System.out.println("----------");
+				boardLayout();
+				chooseMove();
+			}
+		}
+		if (grid[choice1 - 1][choice2 - 2] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // left
+			endPieceCheck2();
+			if (confirmMove == true) {
+				grid[choice1 - 1][choice2 - 1] = player;
+				flip();
+				currentPlayer();
+				System.out.println("test left 1");
+				boardLayout();
+				confirmMove = false;
+			} else {
+				System.out.println("-----------");
+				System.out.println("Try again");
+				System.out.println("-----------");
+				boardLayout();
+				chooseMove();
+			}
+		}
+		if (grid[choice1 - 1][choice2 - 2] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.') { // left
+			endPieceCheck2();
+			if (confirmMove == true) {
+				grid[choice1 - 1][choice2 - 1] = player;
+				flip();
+				currentPlayer();
+				System.out.println("test left 1");
+				boardLayout();
+				confirmMove = false;
+			} else {
+				System.out.println("-----------");
+				System.out.println("Try again");
+				System.out.println("-----------");
+				boardLayout();
+				chooseMove();
+			}
+		}
+	}
+
+	public void endPieceCheck2() {
+
+		confirmMove = false;
+
+		if (player == 'w' && grid[choice1 - 2][choice2 - 1] == 'b') { // up
+			for (int i = choice1 - 1; i > 0; i--) {
+				if (grid[i][choice2 - 1] == 'w') {
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[i - 1][choice2 - 1] == '.') {
+						break;
+					}
+				}
+			}
+		}
+
+		if (player == 'b' && grid[choice1 - 2][choice2 - 1] == 'w') { // up
+			for (int i = choice1 - 1; i > 0; i--) {
+				if (grid[i][choice2 - 1] == 'b') {
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[i - 1][choice2 - 1] == '.') {
+						break;
+					}
+				}
+			}
+		}
+
+		if (player == 'w' && grid[choice1 - 1][choice2 - 2] == 'b') { // left
+			for (int i = choice2 - 1; i > 0; i--) {
+				if (grid[choice1 - 1][i] == 'w') {
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[choice1 - 1][i - 1] == '.') {
+						break;
+					}
+				}
+			}
+		}
+
+		if (player == 'b' && grid[choice1 - 1][choice2 - 2] == 'w') { // left
+			for (int i = choice2 - 1; i > 0; i--) {
+				if (grid[choice1 - 1][i] == 'b') {
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[choice1 - 1][i - 1] == '.') {
+						break;
+					}
+				}
+			}
+		}
+
+		if (player == 'b' && grid[choice1 - 1][choice2] == 'w') { // right
+			for (int i = choice2 - 1; i < 8; i++) {
+				if (grid[choice1 - 1][i] == 'b') {
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[choice1 - 1][i + 1] == '.') {
+						break;
+					}
+				}
+			}
+		}
+
+		if (player == 'w' && grid[choice1 - 1][choice2] == 'b') { // right
+			for (int i = choice2 - 1; i < 8; i++) {
+				if (grid[choice1 - 1][i] == 'w') {
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[choice1 - 1][i + 1] == '.') {
+						break;
+					}
+				}
+			}
+		}
+
+		if (player == 'w' && confirmMove == false) {
+			if (grid[choice1 - 2][choice2 - 2] == 'w') {
+				System.out.println("nope");
+				chooseMove();
+			}
+			while (choice1 > 0 && choice2 > 0) {
+				if (grid[choice1 - 2][choice2 - 2] == 'w') { // up-left
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[choice1 - 2][choice2 - 2] == '.') {
+						break;
+					}
+					choice1--;
+					choice2--;
+				}
+			}
+		}
+
+		if (player == 'b' && confirmMove == false) {
+			if (grid[choice1 - 2][choice2 - 2] == 'b') {
+				System.out.println("nope");
+				chooseMove();
+			}
+			while (choice1 > 0 && choice2 > 0) {
+				if (grid[choice1 - 2][choice2 - 2] == 'b') { // up-left
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[choice1 - 2][choice2 - 2] == '.') {
+						break;
+					}
+					choice1--;
+					choice2--;
+				}
+			}
+		}
+
+		if (player == 'b' && confirmMove == false) {
+			if (grid[choice1 - 2][choice2] == 'b') {
+				System.out.println("nope");
+				chooseMove();
+			}
+			while (choice1 > 0 && choice2 < 8) {
+				if (grid[choice1 - 2][choice2] == 'b') { // up-right
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[choice1 - 2][choice2] == '.') {
+						break;
+					}
+					choice1--;
+					choice2++;
+				}
+			}
+		}
+
+		if (player == 'w' && confirmMove == false) {
+			if (grid[choice1 - 2][choice2] == 'w') {
+				System.out.println("nope");
+				chooseMove();
+			}
+			while (choice1 > 0 && choice2 < 8) {
+				if (grid[choice1 - 2][choice2] == 'w') { // up-right
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[choice1 - 2][choice2] == '.') {
+						break;
+					}
+					choice1--;
+					choice2++;
+				}
+			}
+		}
+	}
+
+	public void validationForValue11() {
+
+		confirmMove = false;
+
+		if (grid[choice1 - 1][choice2] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // right
+			endPieceCheck3();
+			if (confirmMove == true) {
+				grid[choice1 - 1][choice2 - 1] = player;
+				flip();
+				currentPlayer();
+				System.out.println("test right 1");
+				boardLayout();
+				confirmMove = false;
+			} else {
+				System.out.println("----------");
+				System.out.println("Try again");
+				System.out.println("----------");
+				boardLayout();
+				chooseMove();
+			}
+		}
+		if (grid[choice1 - 1][choice2] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.') { // right
+			endPieceCheck3();
+			if (confirmMove == true) {
+				grid[choice1 - 1][choice2 - 1] = player;
+				flip();
+				currentPlayer();
+				System.out.println("test right 1");
+				boardLayout();
+				confirmMove = false;
+			} else {
+				System.out.println("----------");
+				System.out.println("Try again");
+				System.out.println("----------");
+				boardLayout();
+				chooseMove();
+			}
+		}
+
+		if (grid[choice1][choice2 - 1] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // down
+			endPieceCheck3();
+			if (confirmMove == true) {
+				grid[choice1 - 1][choice2 - 1] = player;
+				flip();
+				currentPlayer();
+				System.out.println("test down 1");
+				boardLayout();
+				confirmMove = false;
+			} else {
+				System.out.println("-----------");
+				System.out.println("Try again");
+				System.out.println("-----------");
+				boardLayout();
+				chooseMove();
+			}
+		}
+
+		if (grid[choice1][choice2 - 1] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.') { // down
+			endPieceCheck3();
+			if (confirmMove == true) {
+				grid[choice1 - 1][choice2 - 1] = player;
+				flip();
+				currentPlayer();
+				System.out.println("test down 1");
+				boardLayout();
+				confirmMove = false;
+			} else {
+				System.out.println("-----------");
+				System.out.println("Try again");
+				System.out.println("-----------");
+				boardLayout();
+				chooseMove();
+			}
+		}
+
+		if (grid[choice1 - 2][choice2 - 1] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // up
+			endPieceCheck3();
+			if (confirmMove == true) {
+				grid[choice1 - 1][choice2 - 1] = player;
+				currentPlayer();
+				System.out.println("test up1");
+				boardLayout();
+				confirmMove = false;
+			} else {
+				System.out.println("-----------");
+				System.out.println("Try again");
+				System.out.println("-----------");
+				boardLayout();
+				chooseMove();
+			}
+		}
+
+		if (grid[choice1 - 2][choice2 - 1] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.') { // up
+			endPieceCheck3();
+			if (confirmMove == true) {
+				grid[choice1 - 1][choice2 - 1] = player;
+				flip();
+				currentPlayer();
+				System.out.println("test up1");
+				boardLayout();
+				confirmMove = false;
+			} else {
+				System.out.println("-----------");
+				System.out.println("Try again");
+				System.out.println("-----------");
+				boardLayout();
+				chooseMove();
+			}
+		}
+	}
+
+	public void endPieceCheck3() {
+
+		confirmMove = false;
+
+		if (player == 'w' && grid[choice1 - 2][choice2 - 1] == 'b') { // up
+			for (int i = choice1 - 1; i > 0; i--) {
+				if (grid[i][choice2 - 1] == 'w') {
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[i - 1][choice2 - 1] == '.') {
+						break;
+					}
+				}
+			}
+		}
+
+		if (player == 'b' && grid[choice1 - 2][choice2 - 1] == 'w') { // up
+			for (int i = choice1 - 1; i > 0; i--) {
+				if (grid[i][choice2 - 1] == 'b') {
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[i - 1][choice2 - 1] == '.') {
+						break;
+					}
+				}
+			}
+		}
+
+		if (player == 'w' && grid[choice1][choice2 - 1] == 'b') { // down
+			for (int i = choice1 - 1; i < 8; i++) {
+				if (grid[i][choice2 - 1] == 'w') {
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[i + 1][choice2 - 1] == '.') {
+						break;
+					}
+				}
+			}
+		}
+
+		if (player == 'b' && grid[choice1][choice2 - 1] == 'w') { // down
+			for (int i = choice1 - 1; i < 8; i++) {
+				if (grid[i][choice2 - 1] == 'b') {
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[i + 1][choice2 - 1] == '.') {
+						break;
+					}
+				}
+			}
+		}
+
+		if (player == 'b' && grid[choice1 - 1][choice2] == 'w') { // right
+			for (int i = choice2 - 1; i < 8; i++) {
+				if (grid[choice1 - 1][i] == 'b') {
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[choice1 - 1][i + 1] == '.') {
+						break;
+					}
+				}
+			}
+		}
+
+		if (player == 'w' && grid[choice1 - 1][choice2] == 'b') { // right
+			for (int i = choice2 - 1; i < 8; i++) {
+				if (grid[choice1 - 1][i] == 'w') {
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[choice1 - 1][i + 1] == '.') {
+						break;
+					}
+				}
+			}
+		}
+
+		if (player == 'b' && confirmMove == false) {
+			if (grid[choice1 - 2][choice2] == 'b') {
+				System.out.println("nope");
+				chooseMove();
+			}
+			while (choice1 > 0 && choice2 < 8) {
+				if (grid[choice1 - 2][choice2] == 'b') { // up-right
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[choice1 - 2][choice2] == '.') {
+						break;
+					}
+					choice1--;
+					choice2++;
+				}
+			}
+		}
+
+		if (player == 'w' && confirmMove == false) {
+			if (grid[choice1 - 2][choice2] == 'w') {
+				System.out.println("nope");
+				chooseMove();
+			}
+			while (choice1 > 0 && choice2 < 8) {
+				if (grid[choice1 - 2][choice2] == 'w') { // up-right
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[choice1 - 2][choice2] == '.') {
+						break;
+					}
+					choice1--;
+					choice2++;
+				}
+			}
+		}
+
+		if (player == 'b' && confirmMove == false) {
+			if (grid[choice1][choice2] == 'b') {
+				System.out.println("nope");
+				chooseMove();
+			}
+			while (choice1 < 8 && choice2 < 8) {
+				if (grid[choice1][choice2] == 'b') { // down - right
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[choice1][choice2] == '.') {
+						break;
+					}
+					choice1++;
+					choice2++;
+				}
+			}
+		}
+
+		if (player == 'w' && confirmMove == false) {
+			if (grid[choice1][choice2] == 'w') {
+				System.out.println("nope");
+				chooseMove();
+			}
+			while (choice1 < 8 && choice2 < 8) {
+				if (grid[choice1][choice2] == 'w') { // down - right
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[choice1][choice2] == '.') {
+						break;
+					}
+					choice1++;
+					choice2++;
+				}
+			}
+		}
+	}
+
+	public void validationForValue88() {
+
+		confirmMove = false;
+
+		if (grid[choice1 - 2][choice2 - 1] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.') { // up
+			endPieceCheck4();
+			if (confirmMove == true) {
+				grid[choice1 - 1][choice2 - 1] = player;
+				flip();
+				currentPlayer();
+				System.out.println("test up 2");
+				boardLayout();
+				confirmMove = false;
+			} else {
+				System.out.println("-----------");
+				System.out.println("Try again");
+				System.out.println("-----------");
+				boardLayout();
+				chooseMove();
+			}
+		}
+
+		if (grid[choice1 - 2][choice2 - 1] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // up
+			endPieceCheck4();
+			if (confirmMove == true) {
+				grid[choice1 - 1][choice2 - 1] = player;
+				flip();
+				currentPlayer();
+				System.out.println("test up 2");
+				boardLayout();
+				confirmMove = false;
+			} else {
+				System.out.println("-----------");
+				System.out.println("Try again");
+				System.out.println("-----------");
+				boardLayout();
+				chooseMove();
+			}
+		}
+
+		if (grid[choice1 - 1][choice2 - 2] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.') { // left
+			endPieceCheck4();
+			if (confirmMove == true) {
+				grid[choice1 - 1][choice2 - 1] = player;
+				flip();
+				currentPlayer();
+				System.out.println("test left 1");
+				boardLayout();
+				confirmMove = false;
+			} else {
+				System.out.println("-----------");
+				System.out.println("Try again");
+				System.out.println("-----------");
+				boardLayout();
+				chooseMove();
+			}
+		}
+
+		if (grid[choice1 - 1][choice2 - 2] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // left
+			endPieceCheck4();
+			if (confirmMove == true) {
+				grid[choice1 - 1][choice2 - 1] = player;
+				flip();
+				currentPlayer();
+				System.out.println("test left 1");
+				boardLayout();
+				confirmMove = false;
+			} else {
+				System.out.println("-----------");
+				System.out.println("Try again");
+				System.out.println("-----------");
+				boardLayout();
+				chooseMove();
+			}
+		}
+
+		if (grid[choice1][choice2 - 1] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // down
+			endPieceCheck4();
+			if (confirmMove == true) {
+				grid[choice1 - 1][choice2 - 1] = player;
+				flip();
+				currentPlayer();
+				System.out.println("test down 2");
+				boardLayout();
+				confirmMove = false;
+			} else {
+				System.out.println("-----------");
+				System.out.println("Try again");
+				System.out.println("-----------");
+				boardLayout();
+				chooseMove();
+			}
+		}
+
+		if (grid[choice1][choice2 - 1] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.') { // down
+			endPieceCheck4();
+			if (confirmMove == true) {
+				grid[choice1 - 1][choice2 - 1] = player;
+				flip();
+				currentPlayer();
+				System.out.println("test down 2");
+				boardLayout();
+				confirmMove = false;
+			} else {
+				System.out.println("-----------");
+				System.out.println("Try again");
+				System.out.println("-----------");
+				boardLayout();
+				chooseMove();
+			}
+		}
+	}
+
+	public void endPieceCheck4() {
+
+		confirmMove = false;
+
+		if (player == 'w' && grid[choice1 - 2][choice2 - 1] == 'b') { // up
+			for (int i = choice1 - 1; i > 0; i--) {
+				if (grid[i][choice2 - 1] == 'w') {
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[i - 1][choice2 - 1] == '.') {
+						break;
+					}
+				}
+			}
+		}
+
+		if (player == 'b' && grid[choice1 - 2][choice2 - 1] == 'w') { // up
+			for (int i = choice1 - 1; i > 0; i--) {
+				if (grid[i][choice2 - 1] == 'b') {
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[i - 1][choice2 - 1] == '.') {
+						break;
+					}
+				}
+			}
+		}
+
+		if (player == 'b' && grid[choice1 - 1][choice2 - 2] == 'w') { // left
+			for (int i = choice2 - 1; i > 0; i--) {
+				if (grid[choice1 - 1][i] == 'b') {
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[choice1 - 1][i - 1] == '.') {
+						break;
+					}
+				}
+			}
+		}
+
+		if (player == 'w' && grid[choice1 - 1][choice2 - 2] == 'b') { // left
+			for (int i = choice2 - 1; i > 0; i--) {
+				if (grid[choice1 - 1][i] == 'w') {
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[choice1 - 1][i - 1] == '.') {
+						break;
+					}
+				}
+			}
+		}
+
+		if (player == 'w' && grid[choice1][choice2 - 1] == 'b') { // down
+			for (int i = choice1 - 1; i < 8; i++) {
+				if (grid[i][choice2 - 1] == 'w') {
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[i + 1][choice2 - 1] == '.') {
+						break;
+					}
+				}
+			}
+		}
+
+		if (player == 'b' && grid[choice1][choice2 - 1] == 'w') { // down
+			for (int i = choice1 - 1; i < 8; i++) {
+				if (grid[i][choice2 - 1] == 'b') {
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[i + 1][choice2 - 1] == '.') {
+						break;
+					}
+				}
+			}
+		}
+
+		if (player == 'w' && confirmMove == false) {
+			if (grid[choice1 - 2][choice2 - 2] == 'w') {
+				System.out.println("nope");
+				chooseMove();
+			}
+			while (choice1 > 0 && choice2 > 0) {
+				if (grid[choice1 - 2][choice2 - 2] == 'w') { // up-left
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[choice1 - 2][choice2 - 2] == '.') {
+						break;
+					}
+					choice1--;
+					choice2--;
+				}
+			}
+		}
+
+		if (player == 'b' && confirmMove == false) {
+			if (grid[choice1 - 2][choice2 - 2] == 'b') {
+				System.out.println("nope");
+				chooseMove();
+			}
+			while (choice1 > 0 && choice2 > 0) {
+				if (grid[choice1 - 2][choice2 - 2] == 'b') { // up-left
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[choice1 - 2][choice2 - 2] == '.') {
+						break;
+					}
+					choice1--;
+					choice2--;
+				}
+			}
+		}
+
+		if (player == 'w' && confirmMove == false) {
+			if (grid[choice1][choice2 - 2] == 'w') {
+				System.out.println("nope");
+				chooseMove();
+			}
+			while (choice1 < 8 && choice2 > 0) {
+				if (grid[choice1][choice2 - 2] == 'w') { // down-left
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[choice1][choice2 - 2] == '.') {
+						break;
+					}
+					choice1++;
+					choice2--;
+				}
+			}
+		}
+	}
+
+	public void flip() {
+
+		if (player == 'w' && grid[choice1 - 2][choice2 - 1] == 'b') { // up
+			for (int i = choice1 - 1; i > 0; i--) {
+				if (grid[i - 1][choice2 - 1] == 'b') {
+					grid[i - 1][choice2 - 1] = 'w';
+				} else {
+					if (grid[i][choice2 - 1] != 'b') {
+						break;
+					}
+				}
+			}
+		}
+
+		if (player == 'b' && grid[choice1 - 2][choice2 - 1] == 'w') { // up
+			for (int i = choice1 - 1; i > 0; i--) {
+				if (grid[i - 1][choice2 - 1] == 'w') {
+					grid[i - 1][choice2 - 1] = 'b';
+				} else {
+					if (grid[i][choice2 - 1] != 'w') {
+						break;
+					}
+				}
+			}
+		}
+
+		if (player == 'w' && grid[choice1][choice2 - 1] == 'b') { // down
+			for (int i = choice1 - 1; i < 8; i++) {
+				if (grid[i][choice2 - 1] == 'w') {
+					if (grid[i + 1][choice2 - 1] == 'b') {
+						grid[i + 1][choice2 - 1] = 'w';
+					}
+				} else {
+					if (grid[i][choice2 - 1] != 'b') {
+						break;
+					}
+				}
+			}
+		}
+
+		if (player == 'b' && grid[choice1][choice2 - 1] == 'w') { // down
+			for (int i = choice1 - 1; i < 8; i++) {
+				if (grid[i][choice2 - 1] == 'b') {
+					if (grid[i + 1][choice2 - 1] == 'w') {
+						grid[i + 1][choice2 - 1] = 'b';
+					}
+				} else {
+					if (grid[i][choice2 - 1] != 'w') {
+						break;
+					}
+				}
+			}
+		}
+
+		if (player == 'b' && grid[choice1 - 1][choice2 - 2] == 'w') { // left
+			for (int i = choice2 - 1; i > 0; i--) {
+				if (grid[choice1 - 1][i] == 'b') {
+					if (grid[choice1 - 1][i - 1] == 'w') {
+						grid[choice1 - 1][i - 1] = 'b';
+					}
+				} else {
+					if (grid[choice1 - 1][i] != 'w') {
+						break;
+					}
+				}
+			}
+		}
+
+		if (player == 'w' && grid[choice1 - 1][choice2 - 2] == 'b') { // left
+			for (int i = choice2 - 1; i > 0; i--) {
+				if (grid[choice1 - 1][i] == 'w') {
+					if (grid[choice1 - 1][i - 1] == 'b') {
+						grid[choice1 - 1][i - 1] = 'w';
+					}
+				} else {
+					if (grid[choice1 - 1][i] != 'b') {
+						break;
+					}
+				}
+			}
+		}
+
+		if (player == 'w' && grid[choice1 - 1][choice2] == 'b') { // right
+			for (int i = choice2 - 1; i < 8; i++) {
+				if (grid[choice1 - 1][i] == 'w') {
+					if (grid[choice1 - 1][i + 1] == 'b') {
+						grid[choice1 - 1][i + 1] = 'w';
+					}
+				} else {
+					if (grid[choice1 - 1][i + 1] != 'b') {
+						break;
+					}
+				}
+			}
+		}
+
+		if (player == 'b' && grid[choice1 - 1][choice2] == 'w') { // right
+			for (int i = choice2 - 1; i < 8; i++) {
+				if (grid[choice1 - 1][i] == 'b') {
+					if (grid[choice1 - 1][i + 1] == 'w') {
+						grid[choice1 - 1][i + 1] = 'b';
+					}
+				} else {
+					if (grid[choice1 - 1][i + 1] != 'w') {
+						break;
+					}
+				}
+			}
+		}
+
+		if (player == 'w' && confirmMove == false) {
+			while (choice1 > 0 && choice2 > 0) {
+				if (grid[choice1 - 2][choice2 - 2] == 'w') { // up-left
+					if (grid[choice1 - 3][choice2 - 3] == 'b') {
+						grid[choice1 - 3][choice2 - 3] = 'w';
+					}else {
+						if (grid[choice1 - 2][choice2 - 2] != 'b') {
+							break;
+						}
+				} 
+					choice1--;
+					choice2--;
+				}
+			}
+		}
+
+		if (player == 'b') {
+			while (choice1 > 0 && choice2 > 0) {
+				if (grid[choice1 - 2][choice2 - 2] == 'b') { // up-left
+					if (grid[choice1 - 3][choice2 - 3] == 'w') {
+						grid[choice1 - 3][choice2 - 3] = 'b';
+					} else {
+						if (grid[choice1 - 2][choice2 - 2] != 'w') {
+							break;
+						}
+				}
+					choice1--;
+					choice2--;
+				}
+			}
+		}
+
+		if (player == 'b') {
+			while (choice1 > 0 && choice2 < 8) {
+				if (grid[choice1 - 2][choice2] == 'b') { // up-right
+					if (grid[choice1 - 3][choice2 + 1] == 'w') {
+						grid[choice1 - 3][choice2 + 1] = 'b';
+					}else {
+						if (grid[choice1 - 2][choice2] != 'w') {
+							break;
+						}
+				} 
+					choice1--;
+					choice2++;
+				}
+			}
+		}
+
+		if (player == 'w') {
+			while (choice1 > 0 && choice2 < 8) {
+				if (grid[choice1 - 2][choice2] == 'w') { // up-right
+					if (grid[choice1 - 3][choice2 + 1] == 'b') {
+						grid[choice1 - 3][choice2 + 1] = 'w';
+					} else {
+						if (grid[choice1 - 2][choice2] != 'b') {
+							break;
+						}
+					}
+					choice1--;
+					choice2++;
+				}
+			}
+		}
+
+		if (player == 'b') {
+			while (choice1 < 8 && choice2 < 8) {
+				if (grid[choice1][choice2] == 'b') { // down - right
+					if (grid[choice1 + 1][choice2 + 1] == 'w') {
+						grid[choice1][choice2] = 'b';
+					} else {
+						if (grid[choice1][choice2] != 'w') {
+							break;
+						}
+				}
+					choice1++;
+					choice2++;
+				}
+			}
+		}
+
+		if (player == 'w') {
+			while (choice1 < 8 && choice2 < 8) {
+				if (grid[choice1][choice2] == 'w') { // down - right
+					if (grid[choice1 + 1][choice2 + 1] == 'b') {
+						grid[choice1][choice2] = 'w';
+					} else {
+						if (grid[choice1][choice2] != 'b') {
+							break;
+						}
+				}
+					choice1++;
+					choice2++;
+				}
+			}
+		}
+
+		if (player == 'w') {
+			while (choice1 < 8 && choice2 > 0) {
+				if (grid[choice1][choice2 - 2] == 'w') { // down-left
+					if (grid[choice1 + 1][choice2 - 3] == 'b') {
+						grid[choice1][choice2 - 2] = 'w';
+					}else {
+						if (grid[choice1][choice2 - 2] != 'b') {
+							break;
+						}
+				} 
+					choice1++;
+					choice2--;
+				}
+			}
+		}
+
+		if (player == 'b' && confirmMove == false) {
+			while (choice1 < 8 && choice2 > 0) {
+				if (grid[choice1][choice2 - 2] == 'b') { // down-left
+					if (grid[choice1 + 1][choice2 - 3] == 'w') {
+						grid[choice1][choice2 - 2] = 'b';
+					}else {
+						if (grid[choice1][choice2 - 2] != 'w') {
+							break;
+						}
+				} 
+					choice1++;
+					choice2--;
+				}
+			}
 		}
 	}
 }
