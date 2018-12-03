@@ -99,8 +99,9 @@ public class Board {
 	}
 
 	public void validMove() {
-
+		System.out.println("1");
 		if (grid[choice1 - 2][choice2 - 1] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.') { // up
+			System.out.println("a");
 			endPieceCheck();
 			if (confirmMove == true) {
 				grid[choice1 - 1][choice2 - 1] = player;
@@ -116,8 +117,9 @@ public class Board {
 				chooseMove();
 			}
 		}
-
-		else if (grid[choice1][choice2 - 1] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.') { // down
+		System.out.println("2");
+		 if (grid[choice1][choice2 - 1] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.') { // down
+			 System.out.println("b");
 			endPieceCheck();
 			if (confirmMove == true) {
 				grid[choice1 - 1][choice2 - 1] = player;
@@ -133,8 +135,9 @@ public class Board {
 				chooseMove();
 			}
 		}
-
-		else if (grid[choice1 - 1][choice2 - 2] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.') { // left
+		 System.out.println("3");
+		 if (grid[choice1 - 1][choice2 - 2] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.') { // left
+			 System.out.println("c");
 			endPieceCheck();
 			if (confirmMove == true) {
 				grid[choice1 - 1][choice2 - 1] = player;
@@ -150,8 +153,9 @@ public class Board {
 				chooseMove();
 			}
 		}
-
-		else if (grid[choice1 - 1][choice2] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.') { // right
+		 System.out.println("4");
+		 if (grid[choice1 - 1][choice2] == 'w' && player == 'b' && grid[choice1 - 1][choice2 - 1] == '.') { // right
+			 System.out.println("d");
 			endPieceCheck();
 			if (confirmMove == true) {
 				grid[choice1 - 1][choice2 - 1] = player;
@@ -167,10 +171,11 @@ public class Board {
 				chooseMove();
 			}
 		}
-
-		else if (grid[choice1 - 2][choice2 - 1] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // up
+		 System.out.println("5");
+		 if (grid[choice1 - 2][choice2 - 1] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // up
+			 System.out.println("e");
 			endPieceCheck(); // Checks if move is valid.
-			if (confirmMove == true) {
+			if (confirmMove == true ) {
 				grid[choice1 - 1][choice2 - 1] = player;
 				currentPlayer(); // Swaps turn.
 				System.out.println("test up1");
@@ -184,8 +189,9 @@ public class Board {
 				chooseMove();
 			}
 		}
-
-		else if (grid[choice1][choice2 - 1] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // down
+		System.out.println("6");
+		 if (grid[choice1][choice2 - 1] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // down
+			 System.out.println("f");
 			endPieceCheck();
 			if (confirmMove == true) {
 				grid[choice1 - 1][choice2 - 1] = player;
@@ -201,8 +207,9 @@ public class Board {
 				chooseMove();
 			}
 		}
-
-		else if (grid[choice1 - 1][choice2 - 2] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // left
+		 System.out.println("7");
+		 if (grid[choice1 - 1][choice2 - 2] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // left
+			 System.out.println("g");
 			endPieceCheck();
 			if (confirmMove == true) {
 				grid[choice1 - 1][choice2 - 1] = player;
@@ -218,8 +225,9 @@ public class Board {
 				chooseMove();
 			}
 		}
-
-		else if (grid[choice1 - 1][choice2] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // right
+		 System.out.println("8");
+		 if (grid[choice1 - 1][choice2] == 'b' && player == 'w' && grid[choice1 - 1][choice2 - 1] == '.') { // right
+			 System.out.println("h");
 			endPieceCheck();
 			if (confirmMove == true) {
 				grid[choice1 - 1][choice2 - 1] = player;
@@ -241,7 +249,7 @@ public class Board {
 			chooseMove();
 		}
 	}
-
+	
 	public void endPieceCheck() {
 		/**
 		 * Checks to see if there is a piece that is the same colour of the piece being
@@ -256,7 +264,7 @@ public class Board {
 					confirmMove = true;
 					break;
 				} else {
-					if (grid[i][choice2 - 1] == '.') {
+					if (grid[i - 1][choice2 - 1] == '.') {
 						break;
 					}
 				}
@@ -269,7 +277,7 @@ public class Board {
 					confirmMove = true;
 					break;
 				} else {
-					if (grid[i][choice2 - 1] == '.') {
+					if (grid[i + 1][choice2 - 1] == '.') {
 						break;
 					}
 				}
@@ -282,7 +290,7 @@ public class Board {
 					confirmMove = true;
 					break;
 				} else {
-					if (grid[choice1 - 1][i] == '.') {
+					if (grid[choice1 - 1][i - 1] == '.') {
 						break;
 					}
 				}
@@ -295,7 +303,7 @@ public class Board {
 					confirmMove = true;
 					break;
 				} else {
-					if (grid[choice1 - 1][i] == '.') {
+					if (grid[choice1 - 1][i + 1] == '.') {
 						break;
 					}
 				}
@@ -308,7 +316,7 @@ public class Board {
 					confirmMove = true;
 					break;
 				} else {
-					if (grid[i][choice2 - 1] == '.') {
+					if (grid[i - 1][choice2 - 1] == '.') {
 						break;
 					}
 				}
@@ -321,7 +329,7 @@ public class Board {
 					confirmMove = true;
 					break;
 				} else {
-					if (grid[i][choice2 - 1] == '.') {
+					if (grid[i + 1][choice2 - 1] == '.') {
 						break;
 					}
 				}
@@ -334,7 +342,7 @@ public class Board {
 					confirmMove = true;
 					break;
 				} else {
-					if (grid[choice1 - 1][i] == '.') {
+					if (grid[choice1 - 1][i - 1] == '.') {
 						break;
 					}
 				}
@@ -347,7 +355,7 @@ public class Board {
 					confirmMove = true;
 					break;
 				} else {
-					if (grid[choice1 - 1][i] == '.') {
+					if (grid[choice1 - 1][i + 1] == '.') {
 						break;
 					}
 				}
@@ -355,7 +363,7 @@ public class Board {
 		}
 
 		if (player == 'b') {
-			do {
+			while (choice1 > 0 && choice2 > 0) {
 				if (grid[choice1 - 2][choice2 - 2] == 'b') { // up-left
 					confirmMove = true;
 					break;
@@ -366,11 +374,11 @@ public class Board {
 					choice1--;
 					choice2--;
 				}
-			} while (choice1 > 0 && choice2 > 0);
+			}
 		}
 
 		if (player == 'b') {
-			do {
+			while (choice1 > 0 && choice2 < 8) {
 				if (grid[choice1 - 2][choice2] == 'b') { // up-right
 					confirmMove = true;
 					break;
@@ -381,11 +389,11 @@ public class Board {
 					choice1--;
 					choice2++;
 				}
-			} while (choice1 > 0 && choice2 < 8);
+			}
 		}
 
 		if (player == 'b') {
-			do {
+			while (choice1 < 8 && choice2 > 0) {
 				if (grid[choice1][choice2 - 2] == 'b') { // down-left
 					confirmMove = true;
 					break;
@@ -396,11 +404,11 @@ public class Board {
 					choice1++;
 					choice2--;
 				}
-			} while (choice1 < 8 && choice2 > 0);
+			}
 		}
-		
+
 		if (player == 'b') {
-			do {
+			while (choice1 < 8 && choice2 < 8) {
 				if (grid[choice1][choice2] == 'b') { // down - right
 					confirmMove = true;
 					break;
@@ -411,7 +419,67 @@ public class Board {
 					choice1++;
 					choice2++;
 				}
-			} while (choice1 < 8 && choice2 < 8);
+			}
+		}
+
+		if (player == 'w') {
+			while (choice1 > 0 && choice2 > 0) {
+				if (grid[choice1 - 2][choice2 - 2] == 'w') { // up-left
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[choice1 - 2][choice2 - 2] == '.') {
+						break;
+					}
+					choice1--;
+					choice2--;
+				}
+			}
+		}
+
+		if (player == 'w') {
+			while (choice1 > 0 && choice2 < 8) {
+				if (grid[choice1 - 2][choice2] == 'w') { // up-right
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[choice1 - 2][choice2] == '.') {
+						break;
+					}
+					choice1--;
+					choice2++;
+				}
+			}
+		}
+
+		if (player == 'w') {
+			while (choice1 < 8 && choice2 > 0) {
+				if (grid[choice1][choice2 - 2] == 'w') { // down-left
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[choice1][choice2 - 2] == '.') {
+						break;
+					}
+					choice1++;
+					choice2--;
+				}
+			}
+		}
+
+		if (player == 'w') {
+			while (choice1 < 8 && choice2 < 8) {
+				if (grid[choice1][choice2] == 'w') { // down - right
+					confirmMove = true;
+					break;
+				} else {
+					if (grid[choice1][choice2] == '.') {
+						break;
+					}
+					choice1++;
+					choice2++;
+				}
+			}
 		}
 	}
 
